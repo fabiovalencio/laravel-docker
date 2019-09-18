@@ -4,13 +4,13 @@ steps:
   name: 'gcr.io/$PROJECT_ID/docker-compose:1.24.0'
   args: ['-f','docker-compose.cloudbuild.yaml','up','-d']
 
-- id: "Rodando composer"
+- id: "Rodando composer update"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-t','app','composer','update']
+
+- id: "Rodando composer install"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','composer','install']
-
-- id: "Rodando composer dump-autoload"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','app','composer','dump-autoload']
 
 - id: "Copiando .env"
   name: 'gcr.io/cloud-builders/docker'
