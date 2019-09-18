@@ -13,8 +13,8 @@ steps:
     args: ['exec','-t','app','cp','.env.example','.env']
 
   - id: "Rodando composer dump-autoload"
-      name: 'gcr.io/cloud-builders/docker'
-      args: ['exec','-t','app','composer','dump-autoload']
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec','-t','app','composer','dump-autoload']
 
   - id: "Rodando key:generate"
     name: 'gcr.io/cloud-builders/docker'
